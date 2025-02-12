@@ -1,6 +1,6 @@
 import 'dart:io';
 
-class ModalClass {
+class CarModel {
   String? registration;
   String? maker;
   String? model;
@@ -14,7 +14,7 @@ class ModalClass {
   double askingPrice;
   File? image;
 
-  ModalClass({
+  CarModel({
     required this.registration,
     required this.maker,
     required this.model,

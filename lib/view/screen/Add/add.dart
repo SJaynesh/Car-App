@@ -1,7 +1,8 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:new_appp_1_0/modal/modal.dart'; // Ensure your ModalClass is imported
+import 'package:new_appp_1_0/modal/car_model.dart'; // Ensure your ModalClass is imported
 import 'package:new_appp_1_0/routes/routes.dart';
 import 'package:toastification/toastification.dart';
 
@@ -20,7 +21,7 @@ TextEditingController ownershipController = TextEditingController();
 TextEditingController insuranceController = TextEditingController();
 TextEditingController askingPriceController = TextEditingController();
 
-List<ModalClass> carList = [];
+List<CarModel> carList = [];
 
 // Form Key
 GlobalKey<FormState> formKey = GlobalKey();
@@ -213,7 +214,7 @@ class _AddCarPageState extends State<AddCarPage> {
                     ElevatedButton(
                       onPressed: () {
                         if (formKey.currentState?.validate() == true) {
-                          ModalClass car = ModalClass(
+                          CarModel car = CarModel(
                             image: carImage,
                             registration: regController.text,
                             maker: makerController.text,

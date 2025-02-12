@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:avatar_glow/avatar_glow.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:new_appp_1_0/routes/routes.dart';
+import 'package:new_appp_1_0/services/firestore_service.dart';
 
 File? image;
 String name = "";
@@ -250,8 +252,19 @@ class _Homepage2State extends State<Homepage2> {
         bottomNavigationBar: Visibility(
           visible: name.isNotEmpty && image != null && email.isNotEmpty,
           child: GestureDetector(
-            onTap: () =>
-                Navigator.pushReplacementNamed(context, Routes.Userinterface),
+            onTap: () async {
+              log("===========================");
+              log("Button is Clicked.......");
+              log("===========================");
+
+              await FireStoreService.storeService.addNewUser(
+                email: email,
+                name: name,
+                image: image!,
+              );
+
+              Navigator.pushReplacementNamed(context, Routes.Userinterface);
+            },
             child: Transform.scale(
               scale: 0.9,
               child: Container(

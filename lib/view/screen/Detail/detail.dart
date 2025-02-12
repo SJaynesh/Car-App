@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:new_appp_1_0/modal/modal.dart';
+import 'package:new_appp_1_0/modal/car_model.dart';
 
 bool islike = true;
-List<ModalClass> favList = [];
+List<CarModel> favList = [];
 List cartList = [];
 
 class Detail_page extends StatefulWidget {
@@ -16,7 +16,7 @@ class Detail_page extends StatefulWidget {
 class _Detail_pageState extends State<Detail_page> {
   @override
   Widget build(BuildContext context) {
-    ModalClass cars = ModalRoute.of(context)!.settings.arguments as ModalClass;
+    CarModel cars = ModalRoute.of(context)!.settings.arguments as CarModel;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
